@@ -7,7 +7,7 @@ var randomNumber = randomFn(0, 10)
 var isCorrect = false
 var gameOver = true
 var h1 = document.querySelector('h1')
-var number;
+var number
 
 function guessedNum (input) {
   input = prompt('Please key in a number')
@@ -41,7 +41,7 @@ function newGame () {
 }
 
 function checkForGameover () {
-  if(gameOver) {
+  if (gameOver) {
     alert("That's right!")
   } else {
     gameOver = false
@@ -52,6 +52,6 @@ function checkForGameover () {
   }
 }
 
-if(!gameOver) {
+if (!gameOver) {
   newGame()
 }
