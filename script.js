@@ -1,57 +1,34 @@
-document.getElementById('startButton').addEventListener('click', guessedNum)
+document.getElementById('startButton').addEventListener('click', getNum)
 
-// update the h1 to say higher or lower
-// or if the number guess is correct, we change the body color
-
-var randomNumber = randomFn(0, 10)
-var isCorrect = false
-var gameOver = true
 var h1 = document.querySelector('h1')
-var number
+var randomNumber = randomFn(0, 100)
+var inputNum;
 
-function guessedNum (input) {
-  input = prompt('Please key in a number')
-  guessedNum = parseInt(input)
-
-  askForANumber()
-}
-// fn that generates randomNum
-// min and max always whole number
-// random number between min and max (exclusive)
+function getNum (n) {
+  n = prompt('please key in a number')
+  inputNum = parseInt(n)
+  if (inputNum > randomNumber) {
+    h1.style.color = 'blue'
+    // n = prompt("your guess is too big, try something smaller")
+  } else if (inputNum < randomNumber) {
+    h1.style.color = 'red'
+    // n = prompt("your guess is too small, try something bigger")
+  } else if (inputNum === randomNumber) {
+    h1.style.color = 'green'
+    confirm("that's right! let's try again!") //how to refresh?
+  }
+} // anyway to return a number and a function?
+console.log(randomNumber)
 function randomFn (min, max) {
   return Math.floor(Math.random() * (max - min)) + min
 }
-
-// fn that checks numbers with the random number
-function askForANumber (guessedNum, randomNumber) {
-  if (guessedNum > randomNumber) {
-    h1.style.color = 'red'
-  } else if (guessedNum < randomNumber) {
-    h1.style.color = 'white'
-  } else if (guessedNum === randomNumber) {
-    h1.style.color = 'green'
-    // gameOver = true
-  }
-  // checkForGameover()
-}
-
-function newGame () {
-  // setting randomNumber to 5 for easy checking
-  askForANumber(guessedNum, 5)
-}
-
-function checkForGameover () {
-  if (gameOver) {
-    alert("That's right!")
-  } else {
-    gameOver = false
-    var guessNum = prompt('Please key in a number')
-    var guessedNum = parseInt(guessNum)
-        // bugs?!
-    askForANumber(guessedNum, 5)
-  }
-}
-
-if (!gameOver) {
-  newGame()
-}
+// problem here is that we are comparing undefined(inputNum) with number(randomNumber). How do we make inputNum into a number?
+ // function isAnswerCorrect (inputNum, randomNumber) {
+ //   if (inputNum > randomNumber) {
+ //     h1.style.color = 'blue'
+ //   } else if (inputNum < randomNumber) {
+ //     h1.style.color = 'red'
+ //   } else {
+ //     h1.style.color = 'green'
+ //   }
+ // }
