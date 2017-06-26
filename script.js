@@ -1,25 +1,26 @@
-document.getElementById('startButton').addEventListener('click', getNum)
+document.querySelector('.enter').addEventListener('click', getNum)
 
-var start = document.getElementById('startButton')
+// var start = document.getElementById('startButton')
 var restart = document.getElementById('restartButton')
 var h1 = document.querySelector('h1')
 var randomNumber = randomFn(0, 10)
-var inputNum
+var inputNum = document.querySelector('input')
+var guess = document.querySelector('.guess')
 
 function getNum (n) {
-  n = prompt('please key in a number')
-  inputNum = parseInt(n)
-  if (inputNum > randomNumber) {
+  n = Number(inputNum.value)
+  if (n > randomNumber) {
     h1.style.color = 'blue'
     // n = prompt("your guess is too big, try something smaller")
-  } else if (inputNum < randomNumber) {
+  } else if (n < randomNumber) {
     h1.style.color = 'red'
     // n = prompt("your guess is too small, try something bigger")
-  } else if (inputNum === randomNumber) {
+  } else if (n === randomNumber) {
     h1.style.color = 'green'
     confirm("that's right! let's try again!") // how to refresh?
+    guess.style.visibility = 'hidden'
     restart.style.visibility = 'visible'
-    start.style.visibility = 'hidden'
+    // start.style.visibility = 'hidden'
     restart.addEventListener('click', playAgain)
   }
 } // anyway to return a number and a function?
