@@ -1,5 +1,5 @@
 html {
-  background: url("http://www.planwallpaper.com/static/images/colorful-triangles-background_yB0qTG6.jpg") no-repeat center center fixed;
+  background: url("https://ak3.picdn.net/shutterstock/videos/5500757/thumb/1.jpg?i10c=img.resize(height:160)") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -50,6 +50,9 @@ button:hover {
   color: black;
   letter-spacing: 2px;
   font-size: 20px;
+}
+#restartButton {
+  visibility: hidden;
 }
 .green{
   color: green;
